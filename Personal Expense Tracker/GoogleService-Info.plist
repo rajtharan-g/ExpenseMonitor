@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1079215758402-p95v56fh0g9a5fdph5j9crjoklcn3vc1.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1079215758402-p95v56fh0g9a5fdph5j9crjoklcn3vc1</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDxQc5AMyJ6p8Rt90q5_LsEG3uA30J3AJo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1079215758402</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.qualityX.expensetracker</string>
+	<key>PROJECT_ID</key>
+	<string>expense-tracker-9fd75</string>
+	<key>STORAGE_BUCKET</key>
+	<string>expense-tracker-9fd75.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1079215758402:ios:2643c92b556bc83c</string>
+	<key>DATABASE_URL</key>
+	<string>https://expense-tracker-9fd75.firebaseio.com</string>
+</dict>
+</plist>
