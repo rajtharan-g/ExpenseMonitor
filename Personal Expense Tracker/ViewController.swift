@@ -77,5 +77,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
             })
         }
     }
+    
+    @IBAction func actionTermsAndConditions(_ sender: Any) {
+        guard let url = URL(string: "https://google.com") else { return }
+        UIApplication.shared.open(url)
+    }
+    
 }
 

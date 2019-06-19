@@ -86,8 +86,6 @@ class ProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if currencyPicker.isHidden == false{
             userRoot.child("currency").setValue(currencyArray[row])
-            currencyPicker.isHidden = true
-            cancelButton.isHidden = true
             userRoot.observeSingleEvent(of: .value, with: { (snapshot) in
                 let value = snapshot.value as? NSDictionary
                 let curr = value?["currency"] as? String ?? ""

@@ -31,6 +31,7 @@ class AccountsViewController: UIViewController, UIPickerViewDelegate,UITextField
         super.viewDidLoad()
         accountsTableView.dataSource = self
         accountsTableView.delegate = self
+        accountsTableView.placeholdersProvider =  PlaceholdersProvider(loading: .fetchingYourAccounts, error: .errorFetchingYourData, noResults: .noAccountAdded(withAction: nil), noConnection: .noInternetConnection)
         let user = Auth.auth().currentUser?.displayName
         accType = types[0]
         userRoot = Database.database().reference().child("accounts/"+user!)

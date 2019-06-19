@@ -39,7 +39,7 @@ class DashBoardViewController: UIViewController, UITableViewDelegate, UITableVie
         userRoot = Database.database().reference().child("transactions/"+uid!)
         user = Auth.auth().currentUser?.displayName
         transactionTableView.tableFooterView = UIView()
-        transactionTableView.placeholdersProvider =  PlaceholdersProvider(loading: DashBoardViewController.loadingPlaceholder, error: DashBoardViewController.errorPlaceholder, noResults: DashBoardViewController.noResultPlaceholder, noConnection: DashBoardViewController.noConnectionPlaceholder)
+        transactionTableView.placeholdersProvider =  PlaceholdersProvider(loading: .fetchingYourAccounts, error: .errorFetchingYourData, noResults: .noAccountAdded(withAction: NSLocalizedString("OK!", comment: "")), noConnection: .noInternetConnection)
         transactionTableView.placeholderDelegate = self
     }
     
@@ -157,75 +157,6 @@ class DashBoardViewController: UIViewController, UITableViewDelegate, UITableVie
         })
     }
     
-    private static var noResultPlaceholder: Placeholder {
-        var starwarsStyle = PlaceholderStyle()
-        starwarsStyle.backgroundColor = .white
-        starwarsStyle.actionBackgroundColor = .clear
-        starwarsStyle.actionTitleColor = UIColor(red: 250.0/255.0, green: 222.0/255.0, blue: 251.0/255.0, alpha: 1.0)
-        starwarsStyle.titleColor = UIColor(red: 250.0/255.0, green: 222.0/255.0, blue: 251.0/255.0, alpha: 1.0)
-        starwarsStyle.isAnimated = false
-        
-        var starwarsData = PlaceholderData()
-        starwarsData.title = NSLocalizedString("No account added.", comment: "")
-        starwarsData.subtitle = NSLocalizedString("Please add an account before adding a transaction.", comment: "")
-        starwarsData.action = NSLocalizedString("OK!", comment: "")
-        
-        let placeholder = Placeholder(data: starwarsData, style: starwarsStyle, key: PlaceholderKey.noResultsKey)
-        
-        return placeholder
-    }
-    
-    private static var loadingPlaceholder: Placeholder {
-        var starwarsStyle = PlaceholderStyle()
-        starwarsStyle.backgroundColor = .white
-        starwarsStyle.actionBackgroundColor = .clear
-        starwarsStyle.actionTitleColor = UIColor(red: 250.0/255.0, green: 222.0/255.0, blue: 251.0/255.0, alpha: 1.0)
-        starwarsStyle.titleColor = UIColor(red: 250.0/255.0, green: 222.0/255.0, blue: 251.0/255.0, alpha: 1.0)
-        starwarsStyle.isAnimated = false
-        
-        var starwarsData = PlaceholderData()
-        starwarsData.title = NSLocalizedString("Fetching your accounts...", comment: "")
-        
-        let placeholder = Placeholder(data: starwarsData, style: starwarsStyle, key: PlaceholderKey.loadingKey)
-        
-        return placeholder
-    }
-    private static var errorPlaceholder: Placeholder {
-        var starwarsStyle = PlaceholderStyle()
-        starwarsStyle.backgroundColor = .white
-        starwarsStyle.actionBackgroundColor = .clear
-        starwarsStyle.actionTitleColor = UIColor(red: 250.0/255.0, green: 222.0/255.0, blue: 251.0/255.0, alpha: 1.0)
-        starwarsStyle.titleColor = UIColor(red: 250.0/255.0, green: 222.0/255.0, blue: 251.0/255.0, alpha: 1.0)
-        starwarsStyle.isAnimated = false
-        
-        var starwarsData = PlaceholderData()
-        starwarsData.title = NSLocalizedString("There was an error fetching your data.", comment: "")
-        starwarsData.subtitle = NSLocalizedString("Please try again later.", comment: "")
-        starwarsData.action = NSLocalizedString("OK!", comment: "")
-        
-        let placeholder = Placeholder(data: starwarsData, style: starwarsStyle, key: PlaceholderKey.errorKey)
-        
-        return placeholder
-    }
-    
-    private static var noConnectionPlaceholder: Placeholder {
-        var starwarsStyle = PlaceholderStyle()
-        starwarsStyle.backgroundColor = .white
-        starwarsStyle.actionBackgroundColor = .clear
-        starwarsStyle.actionTitleColor = UIColor(red: 250.0/255.0, green: 222.0/255.0, blue: 251.0/255.0, alpha: 1.0)
-        starwarsStyle.titleColor = UIColor(red: 250.0/255.0, green: 222.0/255.0, blue: 251.0/255.0, alpha: 1.0)
-        starwarsStyle.isAnimated = false
-        
-        var starwarsData = PlaceholderData()
-        starwarsData.title = NSLocalizedString("No internet connection", comment: "")
-        starwarsData.subtitle = NSLocalizedString("Please check your internet connection", comment: "")
-        starwarsData.action = NSLocalizedString("OK!", comment: "")
-        
-        let placeholder = Placeholder(data: starwarsData, style: starwarsStyle, key: PlaceholderKey.noConnectionKey)
-        
-        return placeholder
-    }
-   
 }
 
 extension DashBoardViewController: PlaceholderDelegate {
